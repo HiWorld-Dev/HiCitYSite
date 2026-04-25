@@ -7,21 +7,25 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+:root{--bg:#0A0A0A;--text:#fff;--text-secondary:#A1A1AA;--text-muted:#71717A;--text-muted2:#52525B;--nav-bg:rgba(10,10,10,.85);--nav-border:#1A1A1A;--logo-text:#fff;--card-bg:#0D0D0D;--card-border:#1A1A1A;--card-num:#1A1A1A;--card-title:#fff;--card-desc:#A1A1AA;--ai-section-bg:#0D0D0D;--ai-card-bg:#0A0A0A;--ai-card-border:none;--contact-card-bg:#0D0D0D;--contact-card-border:#1A1A1A;--contact-card-title:#fff;--contact-card-desc:#A1A1AA;--stat-border:#1A1A1A;--lang-switch-border:#1A1A1A;--gallery-border:#1A1A1A;--lightbox-bg:rgba(0,0,0,.9);--nav-link:#A1A1AA;--footer-link:#71717A;--footer-copy:#52525B;--client-logo-bg:#fff;--client-logo-border:#1A1A1A;--footer-border:#1A1A1A}
+[data-theme=light]{--bg:#fff;--text:#1E293B;--text-secondary:#64748B;--text-muted:#94A3B8;--text-muted2:#94A3B8;--nav-bg:rgba(255,255,255,.9);--nav-border:#E2E8F0;--logo-text:#1E293B;--card-bg:#F8FAFC;--card-border:#E2E8F0;--card-num:#E2E8F0;--card-title:#1E293B;--card-desc:#64748B;--ai-section-bg:#F0F9FF;--ai-card-bg:#fff;--ai-card-border:1px solid #E2E8F0;--contact-card-bg:#F8FAFC;--contact-card-border:#E2E8F0;--contact-card-title:#1E293B;--contact-card-desc:#64748B;--stat-border:#E2E8F0;--lang-switch-border:#E2E8F0;--gallery-border:#E2E8F0;--lightbox-bg:rgba(0,0,0,.85);--nav-link:#64748B;--footer-link:#64748B;--footer-copy:#94A3B8;--client-logo-bg:#F8FAFC;--client-logo-border:#E2E8F0;--footer-border:#E2E8F0}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Inter','Geist',sans-serif;background:#0A0A0A;color:#fff;overflow-x:hidden}
+body{font-family:'Inter','Geist',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;transition:background .3s,color .3s}
 a{text-decoration:none;color:inherit}
-.nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 80px;background:rgba(10,10,10,.85);backdrop-filter:blur(20px);border-bottom:1px solid #1A1A1A}
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 80px;background:var(--nav-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--nav-border);transition:background .3s,border .3s}
 .logo{display:flex;align-items:center;gap:10px;cursor:pointer}
-.logo-text{font-size:22px;font-weight:700;letter-spacing:2px;color:#fff}
+.logo-text{font-size:22px;font-weight:700;letter-spacing:2px;color:var(--logo-text);transition:color .3s}
 .logo-dot{width:8px;height:8px;border-radius:50%;background:#A855F7}
 .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
-.nav-links a{font-size:14px;font-weight:400;letter-spacing:1px;color:#A1A1AA;transition:color .3s;cursor:pointer}
+.nav-links a{font-size:14px;font-weight:400;letter-spacing:1px;color:var(--nav-link);transition:color .3s;cursor:pointer}
 .nav-links a:hover,.nav-links a.active{color:#A855F7}
-.lang-switch{display:flex;gap:4px;margin-left:24px;padding-left:24px;border-left:1px solid #1A1A1A}
-.lang-switch button{background:none;border:1px solid transparent;padding:4px 10px;border-radius:4px;font-size:13px;font-weight:500;color:#71717A;cursor:pointer;transition:all .2s}
+.lang-switch{display:flex;gap:4px;margin-left:24px;padding-left:24px;border-left:1px solid var(--lang-switch-border);transition:border .3s}
+.lang-switch button{background:none;border:1px solid transparent;padding:4px 10px;border-radius:4px;font-size:13px;font-weight:500;color:var(--text-muted);cursor:pointer;transition:all .2s}
 .lang-switch button.active{background:#A855F7;color:#fff;border-color:#A855F7}
 .lang-switch button:hover:not(.active){border-color:#A855F744;color:#A855F7}
+.theme-toggle{background:none;border:1px solid var(--lang-switch-border);padding:4px 10px;border-radius:4px;font-size:20px;cursor:pointer;margin-left:12px;transition:all .2s;color:var(--text-muted);line-height:1;flex-shrink:0}
+.theme-toggle:hover{border-color:#A855F744;color:#A855F7}
 .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:180px 80px 100px;overflow:hidden}
 .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(168,85,247,.12) 0%,transparent 70%);pointer-events:none}
 .neon-streak{position:absolute;height:6px;border-radius:3px;filter:blur(40px);opacity:.4;pointer-events:none}
@@ -33,7 +37,7 @@ a{text-decoration:none;color:inherit}
 .hero h1{font-size:56px;font-weight:700;letter-spacing:1px;text-align:center;line-height:1.2;margin-bottom:4px}
 .hero h1 .accent{background:linear-gradient(135deg,#A855F7,#EC4899,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .accent-line{width:80px;height:4px;border-radius:2px;background:#A855F7;margin:24px auto}
-.hero-desc{font-size:16px;color:#A1A1AA;text-align:center;max-width:700px;line-height:1.8;margin-bottom:32px}
+.hero-desc{font-size:16px;color:var(--text-secondary);text-align:center;max-width:700px;line-height:1.8;margin-bottom:32px;transition:color .3s}
 .cta-row{display:flex;gap:16px;margin-bottom:60px}
 .cta-primary{display:inline-flex;align-items:center;gap:8px;padding:14px 36px;border-radius:6px;background:#A855F7;color:#fff;font-size:15px;font-weight:500;transition:all .3s;border:none;cursor:pointer}
 .cta-primary:hover{background:#9333EA;transform:translateY(-2px);box-shadow:0 8px 24px rgba(168,85,247,.3)}
@@ -41,59 +45,56 @@ a{text-decoration:none;color:inherit}
 .cta-secondary:hover{background:rgba(168,85,247,.1);transform:translateY(-2px)}
 .stats{display:flex;gap:0;justify-content:center}
 .stat{display:flex;flex-direction:column;align-items:center;padding:16px 40px;min-width:160px}
-.stat+.stat{border-left:1px solid #1A1A1A}
+.stat+.stat{border-left:1px solid var(--stat-border);transition:border .3s}
 .stat-num{font-size:32px;font-weight:700;margin-bottom:4px}
-.stat-label{font-size:13px;color:#71717A;letter-spacing:1px}
+.stat-label{font-size:13px;color:var(--text-muted);letter-spacing:1px;transition:color .3s}
 .section{padding:100px 80px;display:flex;flex-direction:column;align-items:center}
 .section-label{font-size:12px;color:#A855F7;letter-spacing:2px;font-weight:500;margin-bottom:12px}
 .section-title{font-size:36px;font-weight:700;letter-spacing:1px;text-align:center;margin-bottom:12px}
-.section-desc{font-size:16px;color:#A1A1AA;text-align:center;max-width:700px;line-height:1.8;margin-bottom:48px}
+.section-desc{font-size:16px;color:var(--text-secondary);text-align:center;max-width:700px;line-height:1.8;margin-bottom:48px;transition:color .3s}
 .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;width:100%}
-.service-card{background:#0D0D0D;border:1px solid #1A1A1A;border-radius:8px;padding:32px 28px;display:flex;flex-direction:column;gap:20px;transition:all .3s}
+.service-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:8px;padding:32px 28px;display:flex;flex-direction:column;gap:20px;transition:all .3s}
 .service-card:hover{border-color:#A855F744;transform:translateY(-4px);box-shadow:0 12px 40px rgba(168,85,247,.08)}
-.card-top{display:flex;justify-content:space-between;align-items:center}
 .card-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px}
 .card-icon.purple{background:rgba(168,85,247,.13)}
 .card-icon.pink{background:rgba(236,72,153,.13)}
 .card-icon.cyan{background:rgba(6,182,212,.13)}
-.card-num{font-size:32px;font-weight:700;color:#1A1A1A}
-.card-title{font-size:20px;font-weight:600}
-.card-desc{font-size:14px;color:#A1A1AA;line-height:1.7}
+.card-title{font-size:20px;font-weight:600;color:var(--card-title);transition:color .3s}
+.card-desc{font-size:14px;color:var(--card-desc);line-height:1.7;transition:color .3s}
 .card-tags{display:flex;flex-wrap:wrap;gap:8px}
 .tag{padding:4px 14px;border-radius:4px;font-size:12px;border:1px solid}
 .tag.purple{background:rgba(168,85,247,.07);border-color:rgba(168,85,247,.13);color:#A855F7}
 .tag.pink{background:rgba(236,72,153,.07);border-color:rgba(236,72,153,.13);color:#EC4899}
 .tag.cyan{background:rgba(6,182,212,.07);border-color:rgba(6,182,212,.13);color:#06B6D4}
-.ai-section{background:#0D0D0D;width:100%}
+.ai-section{background:var(--ai-section-bg);width:100%;transition:background .3s}
 .ai-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:1100px;width:100%}
-.ai-card{background:#0A0A0A;border-radius:8px;padding:24px;display:flex;flex-direction:column;gap:16px;transition:all .3s}
+.ai-card{background:var(--ai-card-bg);border-radius:8px;padding:24px;display:flex;flex-direction:column;gap:16px;transition:all .3s;border:var(--ai-card-border)}
 .ai-card:hover{transform:translateY(-4px)}
 .ai-card .card-icon{width:56px;height:56px;border-radius:14px;font-size:24px}
-.ai-card-title{font-size:18px;font-weight:600}
-.ai-card-desc{font-size:13px;color:#A1A1AA;line-height:1.7}
-.partners-grid{max-width:1100px;width:100%;display:flex;flex-direction:column;gap:16px}
+.ai-card-title{font-size:18px;font-weight:600;color:var(--card-title);transition:color .3s}
+.ai-card-desc{font-size:13px;color:var(--card-desc);line-height:1.7;transition:color .3s}
+.clients-grid{max-width:1100px;width:100%;display:grid;grid-template-columns:repeat(5,1fr);gap:20px}
+.client-logo{background:var(--client-logo-bg);border:1px solid var(--client-logo-border);border-radius:8px;display:flex;align-items:center;justify-content:center;height:150px;padding:24px;transition:all .3s}
+.client-logo img{width:100%;height:100%;object-fit:contain;filter:grayscale(1);opacity:.6;transition:all .3s}
+.client-logo:hover{border-color:#A855F7}
+.client-logo:hover img{filter:grayscale(0);opacity:1}
 .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1100px;width:100%}
-.gallery img{width:100%;height:240px;object-fit:cover;border-radius:8px;border:1px solid #1A1A1A;transition:all .3s;cursor:pointer}
+.gallery img{width:100%;height:240px;object-fit:cover;border-radius:8px;border:1px solid var(--gallery-border);transition:all .3s;cursor:pointer}
 .gallery img:hover{transform:scale(1.03);border-color:#A855F744;box-shadow:0 8px 24px rgba(168,85,247,.12)}
 .gallery .wide{grid-column:span 2}
-@media(max-width:1024px){.gallery{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:640px){.gallery{grid-template-columns:1fr}.gallery .wide{grid-column:span 1}}
-.partners-row{display:flex;gap:24px;justify-content:center;flex-wrap:wrap}
-.partner-tag{padding:14px 32px;border-radius:6px;background:#0D0D0D;border:1px solid #1A1A1A;font-size:15px;font-weight:500;color:#A1A1AA;letter-spacing:1px;transition:all .3s}
-.partner-tag:hover{border-color:#A855F744;color:#fff}
 .contact-row{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;max-width:900px;width:100%;margin-bottom:40px}
-.contact-card{background:#0D0D0D;border:1px solid #1A1A1A;border-radius:8px;padding:24px 32px;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
+.contact-card{background:var(--contact-card-bg);border:1px solid var(--contact-card-border);border-radius:8px;padding:24px 32px;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;transition:all .3s}
 .contact-card .card-icon{width:48px;height:48px;border-radius:12px;font-size:20px}
-.contact-card-title{font-size:16px;font-weight:600}
-.contact-card-desc{font-size:14px;color:#A1A1AA;line-height:1.7}
-.footer{border-top:1px solid #1A1A1A;padding:40px 80px;display:flex;flex-direction:column;align-items:center;gap:24px}
+.contact-card-title{font-size:16px;font-weight:600;color:var(--contact-card-title);transition:color .3s}
+.contact-card-desc{font-size:14px;color:var(--contact-card-desc);line-height:1.7;transition:color .3s}
+.footer{border-top:1px solid var(--footer-border);padding:40px 80px;display:flex;flex-direction:column;align-items:center;gap:24px;transition:border .3s}
 .footer-logo{display:flex;align-items:center;gap:8px}
 .footer-links{display:flex;gap:32px;flex-wrap:wrap;justify-content:center}
-.footer-links a{font-size:13px;color:#71717A;letter-spacing:1px;transition:color .3s;cursor:pointer}
+.footer-links a{font-size:13px;color:var(--footer-link);letter-spacing:1px;transition:color .3s;cursor:pointer}
 .footer-links a:hover{color:#A855F7}
-.footer-copy{font-size:12px;color:#52525B;letter-spacing:1px;text-align:center}
+.footer-copy{font-size:12px;color:var(--footer-copy);letter-spacing:1px;text-align:center;transition:color .3s}
 .footer-badge{padding:4px 14px;border-radius:4px;background:rgba(168,85,247,.07);border:1px solid rgba(168,85,247,.13);font-size:11px;color:#A855F7;letter-spacing:1px}
-.lightbox{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.9);align-items:center;justify-content:center;cursor:pointer}
+.lightbox{display:none;position:fixed;inset:0;z-index:9999;background:var(--lightbox-bg);align-items:center;justify-content:center;cursor:pointer}
 .lightbox img{max-width:90vw;max-height:90vh;border-radius:8px;object-fit:contain}
 .lightbox-close{position:absolute;top:24px;right:32px;font-size:36px;color:#fff;cursor:pointer;transition:color .3s}
 .lightbox-close:hover{color:#A855F7}
@@ -105,24 +106,32 @@ a{text-decoration:none;color:inherit}
 .services-grid{grid-template-columns:repeat(2,1fr)}
 .ai-grid{grid-template-columns:repeat(2,1fr)}
 .gallery{grid-template-columns:repeat(2,1fr)}
+.clients-grid{grid-template-columns:repeat(4,1fr)}
 .contact-row{grid-template-columns:1fr;max-width:400px}
 }
 @media(max-width:640px){
-.nav-links{gap:10px;font-size:12px}
+.nav{padding:0 12px}
+.nav-links{gap:4px;font-size:11px;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;flex:1;min-width:0}
+.nav-links::-webkit-scrollbar{display:none}
 .lang-switch{display:none}
+.theme-toggle{font-size:18px;margin-left:8px;padding:4px 8px}
 .hero{padding:140px 20px 60px}
-.hero h1{font-size:28px}
+.hero h1{font-size:24px}
+.badge{font-size:11px;padding:4px 14px;white-space:normal;text-align:center;line-height:1.4}
+.hero-desc{font-size:14px}
+.cta-row{flex-direction:column;align-items:center}
+.cta-primary,.cta-secondary{width:100%;justify-content:center}
 .section{padding:60px 20px}
-.section-title{font-size:24px}
+.section-title{font-size:22px}
+.section-desc{font-size:14px}
 .services-grid{grid-template-columns:1fr}
 .ai-grid{grid-template-columns:1fr}
+.clients-grid{grid-template-columns:repeat(2,1fr)}
 .stats{flex-wrap:wrap;gap:16px}
 .stat{min-width:140px}
 .stat+.stat{border-left:none}
-.partners-row{gap:12px}
-.partner-tag{padding:10px 20px;font-size:13px}
 .footer{padding:32px 20px}
-.footer-links{gap:16px}
+.footer-links{gap:12px;font-size:12px}
 }
 </style>
 </head>
@@ -146,6 +155,7 @@ a{text-decoration:none;color:inherit}
 <button onclick="switchLang('zh')">中文</button>
 <button onclick="switchLang('ja')">日本語</button>
 </div>
+<button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">☾</button>
 </nav>
 
 <section class="hero" id="hero">
@@ -153,11 +163,11 @@ a{text-decoration:none;color:inherit}
 <div class="neon-streak"></div>
 <div class="neon-streak"></div>
 <div class="neon-streak"></div>
-<div class="badge"><span class="badge-dot"></span><span data-i18n="hero.badge">Enterprise Digital Transformation Service Provider</span></div>
+<div class="badge"><span class="badge-dot"></span><span data-i18n="hero.badge">Digital Transformation · Intelligent Upgrade · AI Agent Development · New Quality Productivity</span></div>
 <h1><span data-i18n="hero.title1">HiCitY</span> <span class="accent" data-i18n="hero.titleAccent">Technology</span></h1>
 <h1 data-i18n="hero.title2">Co., Ltd.</h1>
 <div class="accent-line"></div>
-<p class="hero-desc" data-i18n="hero.desc">Integrating cloud computing, big data, AI, and mobile technologies to deliver comprehensive digital and intelligent transformation solutions for enterprises.</p>
+<p class="hero-desc" data-i18n="hero.desc">Integrating cloud computing, big data, AI, and mobile technologies to deliver comprehensive digital and intelligent transformation solutions for enterprises. Focused on digital transformation, intelligent upgrade, AI agent development and new quality productivity to empower comprehensive enterprise growth.</p>
 <div class="cta-row">
 <a href="#services" class="cta-primary"><span data-i18n="hero.cta1">Learn More</span> <span>→</span></a>
 <a href="#ai" class="cta-secondary" data-i18n="hero.cta2">AI Solutions</a>
@@ -188,10 +198,6 @@ a{text-decoration:none;color:inherit}
 <p class="section-desc" data-i18n="services.desc">From consulting to implementation, empowering enterprises to achieve intelligent upgrade</p>
 <div class="services-grid">
 <div class="service-card">
-<div class="card-top">
-<div class="card-icon purple">◈</div>
-<span class="card-num">01</span>
-</div>
 <h3 class="card-title" data-i18n="services.card1.title">Software Development</h3>
 <p class="card-desc" data-i18n="services.card1.desc">Custom business software for manufacturing, education, logistics, healthcare and catering industries with full lifecycle service.</p>
 <div class="card-tags">
@@ -201,23 +207,16 @@ a{text-decoration:none;color:inherit}
 </div>
 </div>
 <div class="service-card">
-<div class="card-top">
-<div class="card-icon pink">◇</div>
-<span class="card-num">02</span>
-</div>
 <h3 class="card-title" data-i18n="services.card2.title">Digital Transformation</h3>
 <p class="card-desc" data-i18n="services.card2.desc">Integrating cloud computing, big data, AI and mobile technologies to drive full-factor digitalization and intelligent transformation.</p>
 <div class="card-tags">
 <span class="tag purple" data-i18n="services.card2.tag1">Cloud</span>
 <span class="tag pink" data-i18n="services.card2.tag2">Big Data</span>
-<span class="tag cyan" data-i18n="services.card2.tag3">AI</span>
+<span class="tag cyan" data-i18n="services.card2.tag3">AI Agents</span>
+<span class="tag purple" data-i18n="services.card2.tag4">New Productivity</span>
 </div>
 </div>
 <div class="service-card">
-<div class="card-top">
-<div class="card-icon cyan">□</div>
-<span class="card-num">03</span>
-</div>
 <h3 class="card-title" data-i18n="services.card3.title">Consulting Services</h3>
 <p class="card-desc" data-i18n="services.card3.desc">Application system implementation, IT management and technical solution consulting to boost efficiency and innovation.</p>
 <div class="card-tags">
@@ -227,24 +226,17 @@ a{text-decoration:none;color:inherit}
 </div>
 </div>
 <div class="service-card">
-<div class="card-top">
-<div class="card-icon purple">◎</div>
-<span class="card-num">04</span>
-</div>
 <h3 class="card-title" data-i18n="services.card4.title">Custom Development</h3>
 <p class="card-desc" data-i18n="services.card4.desc">Custom software, outsourcing and integrated solutions for ticketing, education platforms, ERP/OA and more.</p>
 <div class="card-tags">
 <span class="tag purple" data-i18n="services.card4.tag1">Ticketing</span>
 <span class="tag pink" data-i18n="services.card4.tag2">Edu Platform</span>
 <span class="tag cyan" data-i18n="services.card4.tag3">ERP/OA</span>
+<span class="tag purple" data-i18n="services.card4.tag4">AI Agents</span>
 </div>
 </div>
 <div class="service-card">
-<div class="card-top">
-<div class="card-icon pink">♢</div>
-<span class="card-num">05</span>
-</div>
-<h3 class="card-title" data-i18n="services.card5.title">E-Commerce</h3>
+<h3 class="card-title" data-i18n="services.card5.title">Cross-Border E-Commerce Platform</h3>
 <p class="card-desc" data-i18n="services.card5.desc">Full-stack B2B/B2C/C2C/O2O development covering multi-category e-commerce projects end-to-end.</p>
 <div class="card-tags">
 <span class="tag purple" data-i18n="services.card5.tag1">B2B/B2C</span>
@@ -253,10 +245,6 @@ a{text-decoration:none;color:inherit}
 </div>
 </div>
 <div class="service-card">
-<div class="card-top">
-<div class="card-icon cyan">♤</div>
-<span class="card-num">06</span>
-</div>
 <h3 class="card-title" data-i18n="services.card6.title">SNS/LBS Apps</h3>
 <p class="card-desc" data-i18n="services.card6.desc">Social, community, native and lightweight app development for intelligent interaction and location-based services.</p>
 <div class="card-tags">
@@ -271,15 +259,15 @@ a{text-decoration:none;color:inherit}
 <section class="section ai-section" id="ai">
 <div class="section-label" data-i18n="ai.label">AI Capabilities</div>
 <h2 class="section-title" data-i18n="ai.title">Data Intelligence Technology</h2>
-<p class="section-desc" data-i18n="ai.desc">Building human-computer interaction, knowledge automation and decision support systems for smart government and business.</p>
+<p class="section-desc" data-i18n="ai.desc">Building human-computer interaction, AI agents, knowledge automation and decision support systems for smart government and business.</p>
 <div class="ai-grid">
 <div class="ai-card" style="border:1px solid rgba(168,85,247,.25)">
-<div class="card-icon purple">👁</div>
-<h3 class="ai-card-title" data-i18n="ai.card1.title">OCR Recognition</h3>
-<p class="ai-card-desc" data-i18n="ai.card1.desc">ID, invoice, form and custom template recognition for finance, government and tax reimbursement scenarios.</p>
+<div class="card-icon purple">⚡</div>
+<h3 class="ai-card-title" data-i18n="ai.card1.title">AI Agent Development</h3>
+<p class="ai-card-desc" data-i18n="ai.card1.desc">Design and development of intelligent AI agents for automated workflows, smart decision-making and enterprise process optimization.</p>
 </div>
 <div class="ai-card" style="border:1px solid rgba(236,72,153,.25)">
-<div class="card-icon pink">😀</div>
+<div class="card-icon pink">👤</div>
 <h3 class="ai-card-title" data-i18n="ai.card2.title">Face Recognition</h3>
 <p class="ai-card-desc" data-i18n="ai.card2.desc">Identity verification, attendance with 99.83% accuracy, security alerts and liveness detection.</p>
 </div>
@@ -314,23 +302,26 @@ a{text-decoration:none;color:inherit}
 
 <section class="section" id="partners">
 <div class="section-label" data-i18n="partners.label">Partners</div>
-<h2 class="section-title" data-i18n="partners.title">Trusted Industry Partners</h2>
+<h2 class="section-title" data-i18n="partners.title">Our Clients</h2>
 <p class="section-desc" data-i18n="partners.desc">Serving clients across China, Japan, Canada and Hong Kong SAR.</p>
-<div class="partners-grid">
-<div class="partners-row">
-<span class="partner-tag">国家电网</span>
-<span class="partner-tag">中国海油</span>
-<span class="partner-tag">中国中车</span>
-<span class="partner-tag">鞍钢集团</span>
-<span class="partner-tag">宝钢集团</span>
-</div>
-<div class="partners-row">
-<span class="partner-tag">TOYOTA</span>
-<span class="partner-tag">三菱</span>
-<span class="partner-tag">中国移动</span>
-<span class="partner-tag">住友电工</span>
-<span class="partner-tag">冰山集团</span>
-</div>
+<div class="clients-grid">
+<div class="client-logo"><img src="assets/images/clients/国家电网.png" alt="国家电网"></div>
+<div class="client-logo"><img src="assets/images/clients/中国海油.png" alt="中国海油"></div>
+<div class="client-logo"><img src="assets/images/clients/中国中车.png" alt="中国中车"></div>
+<div class="client-logo"><img src="assets/images/clients/鞍钢集团.png" alt="鞍钢集团"></div>
+<div class="client-logo"><img src="assets/images/clients/宝钢集团.png" alt="宝钢集团"></div>
+<div class="client-logo"><img src="assets/images/clients/丰田.png" alt="丰田"></div>
+<div class="client-logo"><img src="assets/images/clients/三菱集团.png" alt="三菱集团"></div>
+<div class="client-logo"><img src="assets/images/clients/长城汽车.png" alt="长城汽车"></div>
+<div class="client-logo"><img src="assets/images/clients/东风汽车.png" alt="东风汽车"></div>
+<div class="client-logo"><img src="assets/images/clients/东菱电器.png" alt="东菱电器"></div>
+<div class="client-logo"><img src="assets/images/clients/中国福彩.png" alt="中国福彩"></div>
+<div class="client-logo"><img src="assets/images/clients/广东省跨境电商协会.png" alt="广东省跨境电商协会"></div>
+<div class="client-logo"><img src="assets/images/clients/东京大学.png" alt="东京大学"></div>
+<div class="client-logo"><img src="assets/images/clients/大坂大学.png" alt="大坂大学"></div>
+<div class="client-logo"><img src="assets/images/clients/聚思鸿.png" alt="聚思鸿"></div>
+<div class="client-logo"><img src="assets/images/clients/简易保险.png" alt="简易保险"></div>
+<div class="client-logo"><img src="assets/images/clients/fs6688.png" alt="fs6688"></div>
 </div>
 </section>
 
@@ -371,8 +362,8 @@ a{text-decoration:none;color:inherit}
 <a data-i18n="nav.partners" onclick="scrollToSection('partners')">Partners</a>
 <a data-i18n="nav.contact" onclick="scrollToSection('contact')">Contact</a>
 </div>
-<p class="footer-copy" data-i18n="footer.copyright">© 2018-2026 HiCitY Information Technology Co., Ltd. All Rights Reserved.</p>
-<span class="footer-badge" data-i18n="footer.badge">National AAA Credit Enterprise · Dalian Equity Exchange Listed</span>
+<p class="footer-copy" data-i18n="footer.copyright">© 2018-2026 HiCitY Technology Co., Ltd. All Rights Reserved.</p>
+<span class="footer-badge">National AAA Credit Enterprise · Dalian Equity Exchange Listed</span>
 </footer>
 
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
@@ -385,11 +376,11 @@ const langData = {
   en: {
     nav: { home: "Home", about: "About", services: "Services", ai: "AI", partners: "Partners", contact: "Contact" },
     hero: {
-      badge: "Enterprise Digital Transformation Service Provider",
+      badge: "Digital Transformation · Intelligent Upgrade · AI Agent Development · New Quality Productivity",
       title1: "HiCitY",
       titleAccent: "Technology",
       title2: "Co., Ltd.",
-      desc: "Integrating cloud computing, big data, AI, and mobile technologies to deliver comprehensive digital and intelligent transformation solutions for enterprises.",
+      desc: "Integrating cloud computing, big data, AI, and mobile technologies to deliver comprehensive digital and intelligent transformation solutions for enterprises. Focused on digital transformation, intelligent upgrade, AI agent development and new quality productivity to empower comprehensive enterprise growth.",
       cta1: "Learn More",
       cta2: "AI Solutions",
       stat1: "Software Copyrights",
@@ -402,22 +393,22 @@ const langData = {
       title: "Full-Spectrum Digital Transformation Services",
       desc: "From consulting to implementation, empowering enterprises to achieve intelligent upgrade",
       card1: { title: "Software Development", desc: "Custom business software for manufacturing, education, logistics, healthcare and catering industries with full lifecycle service.", tag1: "Requirements", tag2: "Design", tag3: "DevOps" },
-      card2: { title: "Digital Transformation", desc: "Integrating cloud computing, big data, AI and mobile technologies to drive full-factor digitalization and intelligent transformation.", tag1: "Cloud", tag2: "Big Data", tag3: "AI" },
+      card2: { title: "Digital Transformation", desc: "Integrating cloud computing, big data, AI and mobile technologies to drive full-factor digitalization and intelligent transformation.", tag1: "Cloud", tag2: "Big Data", tag3: "AI Agents", tag4: "New Productivity" },
       card3: { title: "Consulting Services", desc: "Application system implementation, IT management and technical solution consulting to boost efficiency and innovation.", tag1: "IT Strategy", tag2: "Solutions", tag3: "Optimization" },
-      card4: { title: "Custom Development", desc: "Custom software, outsourcing and integrated solutions for ticketing, education platforms, ERP/OA and more.", tag1: "Ticketing", tag2: "Edu Platform", tag3: "ERP/OA" },
-      card5: { title: "E-Commerce", desc: "Full-stack B2B/B2C/C2C/O2O development covering multi-category e-commerce projects end-to-end.", tag1: "B2B/B2C", tag2: "O2O", tag3: "Full-Stack" },
+      card4: { title: "Custom Development", desc: "Custom software, outsourcing and integrated solutions for ticketing, education platforms, ERP/OA and more.", tag1: "Ticketing", tag2: "Edu Platform", tag3: "ERP/OA", tag4: "AI Agents" },
+      card5: { title: "Cross-Border E-Commerce Platform", desc: "Full-stack B2B/B2C/C2C/O2O development covering multi-category e-commerce projects end-to-end.", tag1: "B2B/B2C", tag2: "O2O", tag3: "Full-Stack" },
       card6: { title: "SNS/LBS Apps", desc: "Social, community, native and lightweight app development for intelligent interaction and location-based services.", tag1: "Social", tag2: "LBS", tag3: "Mobile Apps" }
     },
     ai: {
       label: "AI Capabilities",
       title: "Data Intelligence Technology",
-      desc: "Building human-computer interaction, knowledge automation and decision support systems for smart government and business.",
-      card1: { title: "OCR Recognition", desc: "ID, invoice, form and custom template recognition for finance, government and tax reimbursement scenarios." },
+      desc: "Building human-computer interaction, AI agents, knowledge automation and decision support systems for smart government and business.",
+      card1: { title: "AI Agent Development", desc: "Design and development of intelligent AI agents for automated workflows, smart decision-making and enterprise process optimization." },
       card2: { title: "Face Recognition", desc: "Identity verification, attendance with 99.83% accuracy, security alerts and liveness detection." },
       card3: { title: "People Analytics", desc: "Footfall counting, customer profiling, crowd density analysis and anomaly detection." },
       card4: { title: "Image Recognition", desc: "Meter reading recognition >95% accuracy, object detection and scene recognition." }
     },
-    partners: { label: "Partners", title: "Trusted Industry Partners", desc: "Serving clients across China, Japan, Canada and Hong Kong SAR." },
+    partners: { label: "Partners", title: "Our Clients", desc: "Serving clients across China, Japan, Canada and Hong Kong SAR." },
     office: { label: "Our Office", title: "Company Environment", desc: "A glimpse into our workspace where innovation meets collaboration." },
     contact: {
       label: "Contact Us", title: "Start Your Digital Transformation Journey",
@@ -432,11 +423,11 @@ const langData = {
   zh: {
     nav: { home: "首页", about: "关于我们", services: "服务", ai: "AI能力", partners: "合作伙伴", contact: "联系我们" },
     hero: {
-      badge: "企业智能化改造 · 数字化转型服务商",
+      badge: "数字化转型 · 智能化改造 · AI智能体开发 · 新质生产力",
       title1: "大连海思特信息",
       titleAccent: "技术",
       title2: "有限责任公司",
-      desc: "融合云计算、大数据、人工智能、移动互联等先进技术，为企业提供全要素数字化、智能化转型解决方案",
+      desc: "融合云计算、大数据、人工智能、移动互联等先进技术，为企业提供全要素数字化、智能化转型解决方案。聚焦数字化转型、智能化改造、AI智能体开发与新质生产力，赋能企业全面升级",
       cta1: "了解详情",
       cta2: "AI解决方案",
       stat1: "软件著作权",
@@ -449,23 +440,23 @@ const langData = {
       title: "全方位数字化转型服务",
       desc: "从咨询规划到落地实施，助力企业实现智能化升级",
       card1: { title: "软件开发", desc: "为制造、高校、物流、医疗、餐饮等行业定制开发商业价值软件，提供全生命周期服务", tag1: "需求分析", tag2: "系统设计", tag3: "测试运维" },
-      card2: { title: "数字化转型", desc: "融合云计算、大数据、AI、移动互联技术，推动企业全要素数字化与智能化转型", tag1: "云计算", tag2: "大数据", tag3: "人工智能" },
+      card2: { title: "数字化转型", desc: "融合云计算、大数据、AI、移动互联技术，推动企业全要素数字化与智能化转型", tag1: "云计算", tag2: "大数据", tag3: "AI智能体开发", tag4: "新质生产力" },
       card3: { title: "咨询服务", desc: "提供应用系统实施、信息化管理、技术方案支持等咨询，助力企业提效创新与优化管理", tag1: "信息化", tag2: "技术方案", tag3: "管理优化" },
-      card4: { title: "定制开发与实施", desc: "提供软件定制、外包、一体化解决方案，覆盖票务系统、教务平台、ERP/OA等场景", tag1: "票务系统", tag2: "教务平台", tag3: "ERP/OA" },
-      card5: { title: "电子商务", desc: "B2B/B2C/C2C/O2O全栈开发，覆盖多品类电商项目，全流程技术支撑", tag1: "B2B/B2C", tag2: "O2O", tag3: "全栈开发" },
+      card4: { title: "定制开发与实施", desc: "提供软件定制、外包、一体化解决方案，覆盖票务系统、教务平台、ERP/OA等场景", tag1: "票务系统", tag2: "教务平台", tag3: "ERP/OA", tag4: "AI智能体" },
+      card5: { title: "跨境电商综合服务平台", desc: "B2B/B2C/C2C/O2O全栈开发，覆盖多品类电商项目，全流程技术支撑", tag1: "B2B/B2C", tag2: "O2O", tag3: "全栈开发" },
       card6: { title: "SNS/LBS应用", desc: "社交、社区、原生/轻量APP开发，打造智能交互与位置服务应用", tag1: "社交应用", tag2: "LBS", tag3: "APP开发" }
     },
     ai: {
       label: "AI 能力",
       title: "数据智能技术驱动",
-      desc: "构建人机交互、知识自动化、辅助决策体系，赋能智慧政务与商业场景",
-      card1: { title: "OCR文字识别", desc: "证照、发票、表格、定制模板识别，广泛应用于金融、政务、财税报销场景" },
+      desc: "构建人机交互、AI智能体、知识自动化、辅助决策体系，赋能智慧政务与商业场景",
+      card1: { title: "AI智能体开发", desc: "设计与开发智能AI代理，实现工作流自动化、智能决策与企业流程优化" },
       card2: { title: "人脸识别", desc: "身份认证、考勤测温（精度99.83%）、安防预警、活体检测" },
       card3: { title: "人体/客流分析", desc: "人流统计、客户画像、人群密度分析、异常预警" },
       card4: { title: "图像识别", desc: "水表/燃气表读数识别（识别率>95%）、物体/场景智能检测" }
     },
-    partners: { label: "合作伙伴", title: "值得信赖的行业伙伴", desc: "服务覆盖中国、日本、加拿大、中国香港等多个国家/地区" },
-    office: { label: "公司环境", title: "我们的办公场所", desc: "一窥我们的工作空间，创新与协作在此交汇。" },
+    partners: { label: "合作伙伴", title: "我们服务的客户", desc: "服务覆盖中国、日本、加拿大、中国香港等多个国家/地区" },
+    office: { label: "公司环境", title: "公司环境", desc: "一窥我们的工作空间，创新与协作在此交汇。" },
     contact: {
       label: "联系我们", title: "开启数字化转型之旅",
       desc: "与我们携手，共同探索企业智能化升级的无限可能",
@@ -479,7 +470,7 @@ const langData = {
   ja: {
     nav: { home: "ホーム", about: "会社概要", services: "サービス", ai: "AI機能", partners: "パートナー", contact: "お問い合わせ" },
     hero: {
-      badge: "企業のデジタルトランスフォーメーションサービスプロバイダー",
+      badge: "デジタル変革 · スマート化 · AIエージェント開発 · 新たな質の生産力",
       title1: "大連ハイシン情報",
       titleAccent: "技術",
       title2: "有限公司",
@@ -496,22 +487,22 @@ const langData = {
       title: "包括的デジタル変革サービス",
       desc: "コンサルティングから実装まで、企業のインテリジェントアップグレードを支援します",
       card1: { title: "ソフトウェア開発", desc: "製造、教育、物流、医療、飲食業向けのカスタム業務ソフトウェアとフルライフサイクルサービス", tag1: "要件定義", tag2: "設計", tag3: "運用保守" },
-      card2: { title: "デジタル変革", desc: "クラウド、ビッグデータ、AI、モバイル技術の統合による全面的なデジタル化とインテリジェント変革", tag1: "クラウド", tag2: "ビッグデータ", tag3: "AI" },
+      card2: { title: "デジタル変革", desc: "クラウド、ビッグデータ、AI、モバイル技術の統合による全面的なデジタル化とインテリジェント変革", tag1: "クラウド", tag2: "ビッグデータ", tag3: "AIエージェント", tag4: "新生産力" },
       card3: { title: "コンサルティング", desc: "業務システム導入、IT管理、技術ソリューションのコンサルティングによる効率化と革新", tag1: "IT戦略", tag2: "ソリューション", tag3: "最適化" },
-      card4: { title: "カスタム開発", desc: "チケッティング、教育プラットフォーム、ERP/OAなどのカスタムソフトウェアと統合ソリューション", tag1: "チケット", tag2: "教育プラット", tag3: "ERP/OA" },
-      card5: { title: "Eコマース", desc: "B2B/B2C/C2C/O2Oのフルスタック開発、多カテゴリーのECプロジェクトをエンドツーエンドで対応", tag1: "B2B/B2C", tag2: "O2O", tag3: "フルスタック" },
+      card4: { title: "カスタム開発", desc: "チケッティング、教育プラットフォーム、ERP/OAなどのカスタムソフトウェアと統合ソリューション", tag1: "チケット", tag2: "教育プラット", tag3: "ERP/OA", tag4: "AIエージェント" },
+      card5: { title: "越境EC総合プラットフォーム", desc: "B2B/B2C/C2C/O2Oのフルスタック開発、多カテゴリーのECプロジェクトをエンドツーエンドで対応", tag1: "B2B/B2C", tag2: "O2O", tag3: "フルスタック" },
       card6: { title: "SNS/LBSアプリ", desc: "ソーシャル、コミュニティ、ネイティブ/軽量アプリ開発、インテリジェントな位置情報サービス", tag1: "ソーシャル", tag2: "LBS", tag3: "モバイルアプリ" }
     },
     ai: {
       label: "AI機能",
       title: "データインテリジェンス技術",
-      desc: "スマート行政とビジネスのためのHCI、知識自動化、意思決定支援システムを構築",
-      card1: { title: "OCR認識", desc: "身分証、請求書、フォーム、カスタムテンプレート認識。金融、行政、税務分野に対応" },
+      desc: "スマート行政とビジネスのためのHCI、AIエージェント、知識自動化、意思決定支援システムを構築",
+      card1: { title: "AIエージェント開発", desc: "インテリジェントなAIエージェントの設計・開発によるワークフロー自動化、スマート意思決定、業務プロセス最適化" },
       card2: { title: "顔認識", desc: "本人確認、99.83%精度の勤怠管理、セキュリティ警告、ライブネス検出" },
       card3: { title: "人流分析", desc: "来客数計測、顧客プロファイリング、混雑度分析、異常検知" },
       card4: { title: "画像認識", desc: "メーター読み取り認識95%以上、物体検出、シーン認識" }
     },
-    partners: { label: "パートナー", title: "信頼される業界パートナー", desc: "中国、日本、カナダ、香港を含む複数の国と地域でサービスを提供" },
+    partners: { label: "パートナー", title: "私たちの顧客", desc: "中国、日本、カナダ、香港を含む複数の国と地域でサービスを提供" },
     office: { label: "オフィス", title: "会社環境", desc: "イノベーションとコラボレーションが出会う私たちのワークスペースをご紹介します。" },
     contact: {
       label: "お問い合わせ", title: "デジタル変革の旅を始めましょう",
@@ -535,11 +526,19 @@ function switchLang(lang) {
     const val = getValue(langData[lang], key);
     if (val) el.innerHTML = val;
   });
-  document.querySelectorAll('.lang-switch button').forEach(btn => {
+  document.querySelectorAll('.lang-switch button:not(.theme-toggle)').forEach(btn => {
     btn.classList.toggle('active', btn.getAttribute('onclick').includes(`'${lang}'`));
   });
   document.documentElement.lang = lang === 'en' ? 'en' : lang === 'zh' ? 'zh-CN' : 'ja';
   localStorage.setItem('lang', lang);
+}
+
+function toggleTheme() {
+  const html = document.documentElement;
+  const isDark = html.getAttribute('data-theme') !== 'light';
+  html.setAttribute('data-theme', isDark ? 'light' : '');
+  document.querySelector('.theme-toggle').textContent = isDark ? '☀' : '☾';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
 }
 
 function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
@@ -553,6 +552,11 @@ function closeLightbox() {
   document.getElementById('lightbox').style.display = 'none';
 }
 
+const savedTheme = localStorage.getItem('theme') || 'light';
+if (savedTheme !== 'dark') {
+  document.documentElement.setAttribute('data-theme', 'light');
+  document.querySelector('.theme-toggle').textContent = '☀';
+}
 const savedLang = localStorage.getItem('lang') || 'zh';
 document.addEventListener('DOMContentLoaded', () => switchLang(savedLang));
 
