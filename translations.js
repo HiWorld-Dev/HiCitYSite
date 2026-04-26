@@ -97,7 +97,7 @@ const T = {
     about: {
       tag: 'About Us',
       title: 'Technology for Good, Human Innovation',
-      p1: 'HiCitY (Dalian HiCity Information Technology Co., Ltd.) was founded in 2018 in the Dalian Hi-Tech Industrial Development Zone, specializing in enterprise intelligent transformation and digital transition services.',
+      p1: 'HiCitY (Dalian HiCity Technology Co., Ltd.) was founded in 2018 in the Dalian Hi-Tech Industrial Development Zone, specializing in enterprise intelligent transformation and digital transition services.',
       p2: 'With an independent R&D team, robust IP framework, and end-to-end project delivery capabilities, we serve clients across China, Japan, Canada, and Hong Kong.',
       items: ['Independent R&D Team', 'Strong IP Framework', 'Full-Lifecycle Delivery', 'National AAA Credit']
     },
@@ -113,9 +113,9 @@ const T = {
       ]
     },
     ai: {
-      tag: 'Artificial Intelligence',
-      title: "China's Leading Data Intelligence",
-      desc: 'Positioned as a leading data intelligence company, powering smart government, smart city, smart tourism, emergency safety, new retail AI, and supply chain finance.',
+      tag: 'AI',
+      title: "AI Native",
+      desc: 'AI Native first, powering smart government, smart city, smart tourism, emergency safety, new retail AI, and supply chain finance.',
       list: [
         { title: 'AI Agent Development', desc: 'Autonomous reasoning & task-execution agents: multi-agent collaboration, tool-use, RAG-enhanced knowledge retrieval.' },
         { title: 'Face & Biometric ID', desc: 'Identity auth, face attendance & temperature (99.83% accuracy), liveness detection, access control.' },
@@ -140,15 +140,15 @@ const T = {
       tag: 'Contact',
       title: 'Ready to Collaborate',
       desc: 'Wherever you are in your digital transformation journey, we are here to provide expert support.',
-      addr: 'Suite 1203, Tide Building, Dalian Hi-Tech Zone, China',
+      addr: 'S20th Floor, Building B, Sanfeng Building, High-tech Zone, Dalian City, China',
       email: 'dev@hicity.world',
       brand: 'HiCitY.World',
-      company: 'Dalian HiCity Information Technology Co., Ltd.',
+      company: 'Dalian HiCity Technology Co., Ltd.',
       slogan: 'High-Performance Value Delivery',
       btn: 'Get in Touch'
     },
     footer: {
-      rights: '© 2025 Dalian HiCity Information Technology Co., Ltd. All Rights Reserved.',
+      rights: '© 2025 Dalian HiCity Technology Co., Ltd. All Rights Reserved.',
       icp: 'ICP No. XXXXXXXX'
     }
   },
@@ -190,8 +190,8 @@ const T = {
       ]
     },
     ai: {
-      tag: '人工知能',
-      title: '中国屈指のデータインテリジェンス',
+      tag: 'AI',
+      title: 'AI ネイティブ',
       desc: 'スマート政務、スマートシティ、スマート観光、安全・防災、ニューリテールAI、サプライチェーンファイナンスへのAI適用を推進。',
       list: [
         { title: 'AI エージェント開発', desc: '自律推論・タスク実行型AIエージェント構築。マルチエージェント連携・ツール呼び出し・RAG知識検索に対応。' },
@@ -217,7 +217,7 @@ const T = {
       tag: 'お問い合わせ',
       title: 'ご協力をお待ちしています',
       desc: 'デジタル変革のどの段階でも、専門的なサポートを提供いたします。',
-      addr: '中国大連市高新区泰德大厦1203室',
+      addr: '中国 大連市高新区三峰ビル B 棟 20 階',
       email: 'dev@hicity.world',
       brand: 'HiCitY.World',
       company: '大連海思特信息技術有限責任公司',
