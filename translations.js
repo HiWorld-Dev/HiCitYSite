@@ -63,7 +63,7 @@ const T = {
       tag: '联系我们',
       title: '期待与您合作',
       desc: '无论您处于数字化转型的哪个阶段，我们都愿意为您提供专业支持。',
-      addr: '大连市高新技术产业园区泰德大厦1203室',
+      addr: '大连市高新技术产业园区三丰大厦B座20F',
       email: 'dev@hicity.world',
       brand: 'HiCitY.World',
       company: '大连海思特信息技术有限责任公司',
